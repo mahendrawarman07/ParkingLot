@@ -1,12 +1,14 @@
 package ParkingLot.models;
 
 import java.util.List;
+import java.util.Set;
 
 public class ParkingSlot extends BaseModel {
     private String slotNumber;
     private boolean isOccupied;
     private ParkingSlotStatus parkingSlotStatus;
-    private List<VehicleType> allowedVehicleTypes;
+    private Set<VehicleType> allowedVehicleTypes;
+    private ParkingFloor parkingFloor;
 
 
     public String getSlotNumber() {
@@ -33,11 +35,19 @@ public class ParkingSlot extends BaseModel {
         this.parkingSlotStatus = parkingSlotStatus;
     }
 
-    public List<VehicleType> getAllowedVehicleTypes() {
+    public Set<VehicleType> getAllowedVehicleTypes() {
         return allowedVehicleTypes;
     }
 
-    public void setAllowedVehicleTypes(List<VehicleType> allowedVehicleTypes) {
+    public void setAllowedVehicleTypes(Set<VehicleType> allowedVehicleTypes) {
         this.allowedVehicleTypes = allowedVehicleTypes;
+    }
+
+    public ParkingFloor getParkingFloor() {
+        return parkingFloor;
+    }
+
+    public void setParkingFloor(ParkingFloor parkingFloor) {
+        this.parkingFloor = parkingFloor;
     }
 }

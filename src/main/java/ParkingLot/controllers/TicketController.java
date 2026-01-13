@@ -18,8 +18,15 @@ public class TicketController {
         IssueTicketResponse response = new IssueTicketResponse();
         try{
             // logic to issue ticket
-            Ticket ticket = ticketService.issueTicket();
+            Ticket ticket = ticketService.issueTicket(
+                    req.getGateId(),
+                    req.getLicensePlateNumber(),
+                    req.getOwnerName(),
+                    req.getVehicleType(),
+                    req.getParkingLotId()
+            );
             response.setTicketId(ticket.getId());
+            response.setSlotNumber(ticket.getParkingSlot().getSlotNumber());
             response.setResponseStatus(ResponseStatus.SUCCESS);
         } catch(Exception e){
             // handle exception

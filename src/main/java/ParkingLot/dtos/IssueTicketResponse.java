@@ -2,15 +2,17 @@ package ParkingLot.dtos;
 
 public class IssueTicketResponse {
     private Long ticketId;
+    private String slotNumber;
     private ResponseStatus responseStatus;
     private String failureMessage;
 
     public IssueTicketResponse(){}
 
-    public IssueTicketResponse(Long ticketId, ResponseStatus responseStatus, String failureMessage) {
+    public IssueTicketResponse(Long ticketId, ResponseStatus responseStatus, String failureMessage, String slotNumber) {
         this.ticketId = ticketId;
         this.responseStatus = responseStatus;
         this.failureMessage = failureMessage;
+        this.slotNumber = slotNumber;
     }
 
     public Long getTicketId() {
@@ -35,5 +37,13 @@ public class IssueTicketResponse {
 
     public void setFailureMessage(String failureMessage) {
         this.failureMessage = failureMessage;
+    }
+
+    public String getSlotNumber() {
+        return slotNumber;
+    }
+
+    public void setSlotNumber(String slotNumber) {
+        this.slotNumber = slotNumber;
     }
 }

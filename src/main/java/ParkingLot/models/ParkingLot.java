@@ -1,5 +1,8 @@
 package ParkingLot.models;
 
+import ParkingLot.strategies.FeeCalculationStrategyType;
+import ParkingLot.strategies.SlotAssignmentStrategy;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,6 +11,17 @@ public class ParkingLot extends BaseModel{
     private List<Gate> exitGates;
     private List<ParkingFloor> parkingFloors;
     private ParkingLotStatus parkingLotStatus;
+    private FeeCalculationStrategyType feeCalculationStrategyType;
+    private SlotAssignmentStrategy slotAssignmentStrategy;
+
+    // Maybe use factory / registry pattern to set this strategy
+    public SlotAssignmentStrategy getSlotAssignmentStrategy() {
+        return slotAssignmentStrategy;
+    }
+
+    public void setSlotAssignmentStrategy(SlotAssignmentStrategy slotAssignmentStrategy) {
+        this.slotAssignmentStrategy = slotAssignmentStrategy;
+    }
 
     private HashMap<VehicleType,Integer> vehicleCountMap;
 
@@ -49,5 +63,13 @@ public class ParkingLot extends BaseModel{
 
     public void setVehicleCountMap(HashMap<VehicleType, Integer> vehicleCountMap) {
         this.vehicleCountMap = vehicleCountMap;
+    }
+
+    public FeeCalculationStrategyType getFeeCalculationStrategyType() {
+        return feeCalculationStrategyType;
+    }
+
+    public void setFeeCalculationStrategyType(FeeCalculationStrategyType feeCalculationStrategyType) {
+        this.feeCalculationStrategyType = feeCalculationStrategyType;
     }
 }

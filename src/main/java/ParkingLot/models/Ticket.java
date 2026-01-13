@@ -33,7 +33,7 @@ public class Ticket extends BaseModel{
         return entryGate;
     }
 
-    public void setGate(Gate entryGate) {
+    public void setEntryGate(Gate entryGate) {
         this.entryGate = entryGate;
     }
 
